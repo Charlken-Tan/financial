@@ -871,8 +871,9 @@
                     </div>
                 </div>
 
-                <!-- ===== CONTACT FORM ===== -->
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <!-- ===== CONTACT FORM (Formspree - Configured) ===== -->
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mzepgevl" method="POST">
+                    <input type="hidden" name="_subject" value="New Client Inquiry from Website" />
                     <div class="field">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" placeholder="e.g., Ahmad bin Abdullah" required />
@@ -949,15 +950,995 @@
         });
 
         // ============================================================
-        // CONTACT FORM (Formspree - Free, No Credit Card Required)
+        // CONTACT FORM (Formspree - AJAX submission with success message)
         // ============================================================
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            // Formspree handles the submission natively via action=""
-            // We just need to show the success message and reset the form
-            // after a successful submission.
-            // But we'll let Formspree handle the actual POST.
-            // We'll add a listener to detect success via the fetch API
-            // to show the success message without page reload.
+            e.preventDefault();
+
+            const form = this;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('formSuccess').classList.add('show');
+                        form.reset();
+                        setTimeout(() => {
+                            document.getElementById('formSuccess').classList.remove('show');
+                        }, 6000);
+                    } else {
+                        alert('⚠️ Something went wrong. Please try again or email me directly.');
+                    }
+                })
+                .catch(error => {
+                    alert('⚠️ Something went wrong. Please try again or email me directly.');
+                    console.error('Formspree error:', error);
+                });
+        });
+    </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Planner | [Your Name]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <style>
+        /* ============================================================
+           RESET & VARIABLES
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --navy: #0b1b33;
+            --gold: #d4a843;
+            --gold-light: #f0e0b0;
+            --white: #ffffff;
+            --off-white: #f8fafc;
+            --grey: #4a5a72;
+            --light-grey: #e8edf4;
+            --shadow: 0 8px 32px rgba(11, 27, 51, 0.08);
+            --radius: 16px;
+            --transition: 0.25s ease;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--off-white);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================================
+           NAVIGATION
+           ============================================================ */
+        nav {
+            background: var(--navy);
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        .btn-nav {
+            background: var(--gold);
+            color: var(--navy) !important;
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-weight: 600 !important;
+            transition: background var(--transition), transform var(--transition);
+        }
+        .btn-nav:hover {
+            background: #c49a38 !important;
+            transform: scale(1.03);
+            color: var(--navy) !important;
+        }
+
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background var(--transition), transform var(--transition);
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        .btn-primary:hover {
+            background: #c49a38;
+            transform: scale(1.02);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--gold);
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        .btn-submit {
+            background: var(--navy);
+            color: var(--white);
+            padding: 14px 40px;
+        }
+        .btn-submit:hover {
+            background: #1a3155;
+            transform: scale(1.02);
+        }
+
+        /* ============================================================
+           SECTIONS
+           ============================================================ */
+        section {
+            padding: 72px 0;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .section-title .highlight {
+            color: var(--gold);
+        }
+        .section-sub {
+            text-align: center;
+            color: var(--grey);
+            max-width: 640px;
+            margin: 0 auto 48px;
+            font-size: 1.05rem;
+        }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
+        #hero {
+            background: var(--navy);
+            color: var(--white);
+            padding: 80px 0 90px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        #hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.06), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        #hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 168, 67, 0.15);
+            color: var(--gold-light);
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+        }
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .hero-title .gold {
+            color: var(--gold);
+        }
+        .hero-sub {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 640px;
+            margin: 0 auto 20px;
+        }
+        .hero-trust {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 32px;
+            letter-spacing: 0.3px;
+        }
+        .hero-trust span {
+            color: var(--gold-light);
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        /* ============================================================
+           ABOUT
+           ============================================================ */
+        #about {
+            background: var(--white);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .about-text h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .about-text h2 .gold {
+            color: var(--gold);
+        }
+        .about-text p {
+            color: var(--grey);
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+        }
+        .about-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 24px;
+        }
+        .about-stats div {
+            text-align: center;
+        }
+        .about-stats .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .about-stats .label {
+            font-size: 0.85rem;
+            color: var(--grey);
+        }
+        .about-image {
+            background: var(--light-grey);
+            border-radius: var(--radius);
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--grey);
+            border: 2px dashed #cdd7e6;
+        }
+
+        /* ============================================================
+           SERVICES
+           ============================================================ */
+        #services {
+            background: var(--off-white);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 32px 28px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
+            border-top: 4px solid var(--gold);
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(11, 27, 51, 0.10);
+        }
+        .service-card .icon {
+            font-size: 2.6rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .service-card p {
+            color: var(--grey);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================================
+           WHY PLAN (BENEFITS)
+           ============================================================ */
+        #benefits {
+            background: var(--white);
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .benefit-card {
+            background: var(--off-white);
+            padding: 32px 28px;
+            border-radius: var(--radius);
+            transition: transform var(--transition), box-shadow var(--transition);
+            border-left: 4px solid var(--gold);
+        }
+        .benefit-card:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow);
+        }
+        .benefit-card .icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .benefit-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .benefit-card p {
+            color: var(--grey);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================================
+           CALCULATOR
+           ============================================================ */
+        #calculator {
+            background: var(--off-white);
+        }
+        .calc-wrapper {
+            max-width: 640px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px 44px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        .calc-wrapper .field {
+            margin-bottom: 20px;
+        }
+        .calc-wrapper label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+        .calc-wrapper input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--light-grey);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border var(--transition);
+            background: var(--white);
+        }
+        .calc-wrapper input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .calc-wrapper .input-hint {
+            font-size: 0.8rem;
+            color: var(--grey);
+            margin-top: 2px;
+        }
+        .calc-wrapper .btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 8px;
+        }
+        .calc-result {
+            margin-top: 28px;
+            padding: 24px;
+            background: var(--navy);
+            border-radius: var(--radius);
+            color: var(--white);
+            display: none;
+        }
+        .calc-result.show {
+            display: block;
+        }
+        .calc-result .fv-number {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: -0.5px;
+        }
+        .calc-result .fv-breakdown {
+            display: flex;
+            gap: 32px;
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+        .calc-result .fv-breakdown span {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .calc-result .fv-breakdown strong {
+            color: var(--white);
+        }
+
+        /* ============================================================
+           TESTIMONIALS
+           ============================================================ */
+        #testimonials {
+            background: var(--white);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .testimonial-card {
+            background: var(--off-white);
+            padding: 28px 30px;
+            border-radius: var(--radius);
+            border-bottom: 4px solid var(--gold);
+        }
+        .testimonial-card .quote {
+            font-size: 0.95rem;
+            color: var(--grey);
+            font-style: italic;
+        }
+        .testimonial-card .author {
+            margin-top: 12px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .testimonial-card .role {
+            font-size: 0.85rem;
+            color: var(--grey);
+            font-weight: 400;
+        }
+
+        /* ============================================================
+           CONTACT
+           ============================================================ */
+        #contact {
+            background: var(--off-white);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+        .contact-info h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .contact-info h2 .gold {
+            color: var(--gold);
+        }
+        .contact-info p {
+            color: var(--grey);
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            color: var(--grey);
+        }
+        .contact-detail .emoji {
+            font-size: 1.3rem;
+        }
+        .contact-form {
+            background: var(--white);
+            padding: 32px 36px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        .contact-form .field {
+            margin-bottom: 18px;
+        }
+        .contact-form label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--light-grey);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border var(--transition);
+            background: var(--white);
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .contact-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .form-success {
+            display: none;
+            padding: 16px;
+            background: #dff0d8;
+            color: #2d6a4f;
+            border-radius: 10px;
+            margin-top: 12px;
+            font-weight: 600;
+        }
+        .form-success.show {
+            display: block;
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        footer {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 40px 0 32px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer .footer-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 16px auto;
+        }
+        footer .disclaimer {
+            max-width: 720px;
+            margin: 12px auto 0;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 900px) {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .services-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .services-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .calc-wrapper {
+                padding: 24px 20px;
+            }
+            .contact-form {
+                padding: 24px 18px;
+            }
+            .about-stats {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+            .nav-links {
+                gap: 14px;
+            }
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+            .btn-nav {
+                padding: 6px 14px;
+                font-size: 0.8rem;
+            }
+            section {
+                padding: 48px 0;
+            }
+            .calc-result .fv-breakdown {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    NAVIGATION
+    ============================================================ -->
+    <nav>
+        <div class="container">
+            <div class="logo">[Your Name] <span>|</span> Financial Planner</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#benefits">Why Plan</a>
+                <a href="#calculator">Resources</a>
+                <a href="#contact" class="btn-nav">Book a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-badge">✦ Trusted Financial Guidance</div>
+            <h1 class="hero-title">Plan Today, <span class="gold">Thrive Tomorrow.</span></h1>
+            <p class="hero-sub">
+                I help individuals build a clear, actionable roadmap to achieve their financial goals —
+                so you can focus on what matters most.
+            </p>
+            <div class="hero-trust">
+                <span>Licensed Financial Planner</span> · Securities Commission Registered
+            </div>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Start Your Journey</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ABOUT
+    ============================================================ -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Hi, I'm <span class="gold">[Your Name]</span></h2>
+                    <p>
+                        I'm passionate about helping everyday people take control of their money
+                        and build a secure future. My approach is simple: <strong>listen first, plan second.</strong>
+                        No jargon, no pressure — just honest, transparent advice tailored to your unique situation.
+                    </p>
+                    <p>
+                        Whether you're planning for retirement, saving for your child's education,
+                        or simply want to grow your wealth with confidence — I'm here to guide you
+                        every step of the way.
+                    </p>
+                    <div class="about-stats">
+                        <div>
+                            <div class="number">10+</div>
+                            <div class="label">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="number">500+</div>
+                            <div class="label">Clients Served</div>
+                        </div>
+                        <div>
+                            <div class="number">100%</div>
+                            <div class="label">Client-First Approach</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <span>📸 Your Photo Here</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SERVICES
+    ============================================================ -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">How I Can <span class="highlight">Help You</span></h2>
+            <p class="section-sub">
+                Practical, personalized financial guidance for every stage of life.
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="icon">🎯</span>
+                    <h3>Define Your Goals</h3>
+                    <p>
+                        Whether it's buying a home, saving for education, or retiring early —
+                        I'll help you clarify and achieve your goals with a clear roadmap.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">🛡️</span>
+                    <h3>Protect What Matters</h3>
+                    <p>
+                        Safeguard your family's future against life's uncertainties with a
+                        solid, comprehensive risk management plan.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">📈</span>
+                    <h3>Grow Your Wealth</h3>
+                    <p>
+                        Navigate investments with confidence and a strategy tailored to your
+                        unique risk profile and long-term aspirations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    WHY PLAN (BENEFITS)
+    ============================================================ -->
+    <section id="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Everyone Needs a <span class="highlight">Financial Plan</span></h2>
+            <p class="section-sub">
+                Financial planning isn't about restrictions — it's about freedom, clarity, and peace of mind.
+            </p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="icon">🧭</span>
+                    <h3>Clarity</h3>
+                    <p>Know exactly where you stand and where you're heading. No more guesswork about your financial future.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">💪</span>
+                    <h3>Confidence</h3>
+                    <p>Make informed decisions without second-guessing. Feel empowered about every financial choice you make.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">🕊️</span>
+                    <h3>Freedom</h3>
+                    <p>Spend, save, and invest with purpose. A solid plan gives you the freedom to enjoy life today while building for tomorrow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CALCULATOR (RESOURCES)
+    ============================================================ -->
+    <section id="calculator">
+        <div class="container">
+            <h2 class="section-title">See How Your <span class="highlight">Money Grows</span></h2>
+            <p class="section-sub">
+                Try this simple calculator to see the future value of your monthly savings.
+            </p>
+            <div class="calc-wrapper">
+                <div class="field">
+                    <label for="monthly">Monthly Savings (RM)</label>
+                    <input type="number" id="monthly" value="500" min="0" />
+                    <div class="input-hint">e.g., 500</div>
+                </div>
+                <div class="field">
+                    <label for="rate">Annual Interest Rate (%)</label>
+                    <input type="number" id="rate" value="6.0" step="0.1" min="0" />
+                    <div class="input-hint">e.g., 6.0</div>
+                </div>
+                <div class="field">
+                    <label for="years">Number of Years</label>
+                    <input type="number" id="years" value="20" min="1" />
+                    <div class="input-hint">e.g., 20</div>
+                </div>
+                <button class="btn btn-primary" id="calcBtn">Calculate Future Value</button>
+
+                <div class="calc-result" id="calcResult">
+                    <div style="font-size:0.9rem; opacity:0.7; margin-bottom:4px;">Estimated Future Value</div>
+                    <div class="fv-number" id="fvTotal">RM 0</div>
+                    <div class="fv-breakdown">
+                        <div><span>Total Principal:</span> <strong id="fvPrincipal">RM 0</strong></div>
+                        <div><span>Total Interest Earned:</span> <strong id="fvInterest">RM 0</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    TESTIMONIALS
+    ============================================================ -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What My <span class="highlight">Clients Say</span></h2>
+            <p class="section-sub">
+                Real feedback from real people I've had the privilege to work with.
+            </p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"Working with [Your Name] completely changed my perspective on money. I finally feel in control of my financial future."</p>
+                    <div class="author">— Sarah M. <span class="role">· Kuala Lumpur</span></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Finally, a financial planner who actually listens! No jargon, no pressure — just practical advice that made sense for my family."</p>
+                    <div class="author">— Ahmad R. <span class="role">· Selangor</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CONTACT
+    ============================================================ -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Ready to Take Control of <span class="gold">Your Finances?</span></h2>
+                    <p>
+                        Book a free, no-obligation consultation today. I'll get back to you
+                        within 24 hours to understand your goals and how I can help.
+                    </p>
+                    <div class="contact-detail">
+                        <span class="emoji">📧</span> <span>hello@yourdomain.com</span>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="emoji">📱</span> <span>+60 12-345 6789</span>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="emoji">📍</span> <span>Kuala Lumpur, Malaysia</span>
+                    </div>
+                </div>
+
+                <!-- ===== CONTACT FORM (Formspree - Configured) ===== -->
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mzepgevl" method="POST">
+                    <input type="hidden" name="_subject" value="New Client Inquiry from Website" />
+                    <div class="field">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="e.g., Ahmad bin Abdullah" required />
+                    </div>
+                    <div class="field">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="e.g., ahmad@email.com" required />
+                    </div>
+                    <div class="field">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone" name="phone" placeholder="e.g., 012-3456789" />
+                    </div>
+                    <div class="field">
+                        <label for="message">Your Financial Goals</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your goals — retirement, education, investment, or anything else..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-submit">Send Message</button>
+                    <div class="form-success" id="formSuccess">✅ Thank you! I'll get back to you within 24 hours.</div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer>
+        <div class="container">
+            <div style="font-weight:600; color:var(--white);">[Your Name] · Financial Planner</div>
+            <div class="footer-divider"></div>
+            <div>© 2026 [Your Name]. All rights reserved.</div>
+            <div class="disclaimer">
+                ⚠️ <strong>Disclaimer:</strong> This calculator is for illustrative purposes only.
+                Actual returns may vary based on market conditions, fees, and individual circumstances.
+                Please consult a licensed financial professional for personalized advice tailored to your situation.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        // ============================================================
+        // FV CALCULATOR
+        // ============================================================
+        document.getElementById('calcBtn').addEventListener('click', function() {
+            const monthly = parseFloat(document.getElementById('monthly').value) || 0;
+            const rate = parseFloat(document.getElementById('rate').value) || 0;
+            const years = parseFloat(document.getElementById('years').value) || 0;
+
+            if (monthly <= 0 || rate < 0 || years <= 0) {
+                alert('Please enter valid numbers (Monthly Savings > 0, Rate >= 0, Years > 0).');
+                return;
+            }
+
+            const monthlyRate = rate / 100 / 12;
+            const totalMonths = years * 12;
+            let fv = 0;
+            if (monthlyRate === 0) {
+                fv = monthly * totalMonths;
+            } else {
+                fv = monthly * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
+            }
+
+            const totalPrincipal = monthly * totalMonths;
+            const totalInterest = fv - totalPrincipal;
+
+            document.getElementById('fvTotal').textContent = 'RM ' + fv.toFixed(2);
+            document.getElementById('fvPrincipal').textContent = 'RM ' + totalPrincipal.toFixed(2);
+            document.getElementById('fvInterest').textContent = 'RM ' + totalInterest.toFixed(2);
+
+            document.getElementById('calcResult').classList.add('show');
+        });
+
+        // ============================================================
+        // CONTACT FORM (Formspree - AJAX submission with success message)
+        // ============================================================
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const form = this;
