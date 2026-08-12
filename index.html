@@ -8,7 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <style>
-        /* ===== RESET & VARIABLES ===== */
+        /* ============================================================
+           RESET & VARIABLES
+           ============================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -41,10 +43,12 @@
             padding: 0 24px;
         }
 
-        /* ===== NAVIGATION ===== */
+        /* ============================================================
+           NAVIGATION
+           ============================================================ */
         nav {
             background: var(--navy);
-            padding: 16px 0;
+            padding: 14px 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -59,7 +63,7 @@
         }
         .logo {
             color: var(--white);
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
             letter-spacing: -0.3px;
         }
@@ -69,7 +73,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 28px;
             flex-wrap: wrap;
         }
         .nav-links a {
@@ -85,7 +89,7 @@
         .btn-nav {
             background: var(--gold);
             color: var(--navy) !important;
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: 40px;
             font-weight: 600 !important;
             transition: background var(--transition), transform var(--transition);
@@ -93,9 +97,12 @@
         .btn-nav:hover {
             background: #c49a38 !important;
             transform: scale(1.03);
+            color: var(--navy) !important;
         }
 
-        /* ===== BUTTONS ===== */
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
         .btn {
             display: inline-block;
             padding: 14px 36px;
@@ -134,7 +141,9 @@
             transform: scale(1.02);
         }
 
-        /* ===== SECTIONS ===== */
+        /* ============================================================
+           SECTIONS
+           ============================================================ */
         section {
             padding: 72px 0;
         }
@@ -151,12 +160,14 @@
         .section-sub {
             text-align: center;
             color: var(--grey);
-            max-width: 620px;
+            max-width: 640px;
             margin: 0 auto 48px;
             font-size: 1.05rem;
         }
 
-        /* ===== HERO ===== */
+        /* ============================================================
+           HERO
+           ============================================================ */
         #hero {
             background: var(--navy);
             color: var(--white);
@@ -196,7 +207,7 @@
             font-weight: 700;
             letter-spacing: -1px;
             line-height: 1.15;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         .hero-title .gold {
             color: var(--gold);
@@ -205,7 +216,16 @@
             font-size: 1.15rem;
             color: rgba(255, 255, 255, 0.75);
             max-width: 640px;
-            margin: 0 auto 36px;
+            margin: 0 auto 20px;
+        }
+        .hero-trust {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 32px;
+            letter-spacing: 0.3px;
+        }
+        .hero-trust span {
+            color: var(--gold-light);
         }
         .hero-buttons {
             display: flex;
@@ -214,7 +234,9 @@
             gap: 16px;
         }
 
-        /* ===== ABOUT ===== */
+        /* ============================================================
+           ABOUT
+           ============================================================ */
         #about {
             background: var(--white);
         }
@@ -228,6 +250,9 @@
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 12px;
+        }
+        .about-text h2 .gold {
+            color: var(--gold);
         }
         .about-text p {
             color: var(--grey);
@@ -263,9 +288,50 @@
             border: 2px dashed #cdd7e6;
         }
 
-        /* ===== BENEFITS (Why Plan) ===== */
-        #benefits {
+        /* ============================================================
+           SERVICES
+           ============================================================ */
+        #services {
             background: var(--off-white);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 32px 28px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
+            border-top: 4px solid var(--gold);
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(11, 27, 51, 0.10);
+        }
+        .service-card .icon {
+            font-size: 2.6rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .service-card p {
+            color: var(--grey);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================================
+           WHY PLAN (BENEFITS)
+           ============================================================ */
+        #benefits {
+            background: var(--white);
         }
         .benefits-grid {
             display: grid;
@@ -273,40 +339,41 @@
             gap: 28px;
         }
         .benefit-card {
-            background: var(--white);
+            background: var(--off-white);
             padding: 32px 28px;
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
             transition: transform var(--transition), box-shadow var(--transition);
-            border-top: 4px solid var(--gold);
+            border-left: 4px solid var(--gold);
         }
         .benefit-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(11, 27, 51, 0.10);
+            transform: translateX(4px);
+            box-shadow: var(--shadow);
         }
         .benefit-card .icon {
-            font-size: 2.4rem;
-            margin-bottom: 12px;
+            font-size: 2rem;
+            margin-bottom: 8px;
             display: block;
         }
         .benefit-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .benefit-card p {
             color: var(--grey);
             font-size: 0.95rem;
         }
 
-        /* ===== CALCULATOR ===== */
+        /* ============================================================
+           CALCULATOR
+           ============================================================ */
         #calculator {
-            background: var(--white);
+            background: var(--off-white);
         }
         .calc-wrapper {
             max-width: 640px;
             margin: 0 auto;
-            background: var(--off-white);
+            background: var(--white);
             padding: 40px 44px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -374,7 +441,44 @@
             color: var(--white);
         }
 
-        /* ===== CONTACT ===== */
+        /* ============================================================
+           TESTIMONIALS
+           ============================================================ */
+        #testimonials {
+            background: var(--white);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .testimonial-card {
+            background: var(--off-white);
+            padding: 28px 30px;
+            border-radius: var(--radius);
+            border-bottom: 4px solid var(--gold);
+        }
+        .testimonial-card .quote {
+            font-size: 0.95rem;
+            color: var(--grey);
+            font-style: italic;
+        }
+        .testimonial-card .author {
+            margin-top: 12px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .testimonial-card .role {
+            font-size: 0.85rem;
+            color: var(--grey);
+            font-weight: 400;
+        }
+
+        /* ============================================================
+           CONTACT
+           ============================================================ */
         #contact {
             background: var(--off-white);
         }
@@ -388,6 +492,9 @@
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 12px;
+        }
+        .contact-info h2 .gold {
+            color: var(--gold);
         }
         .contact-info p {
             color: var(--grey);
@@ -452,7 +559,9 @@
             display: block;
         }
 
-        /* ===== FOOTER ===== */
+        /* ============================================================
+           FOOTER
+           ============================================================ */
         footer {
             background: var(--navy);
             color: rgba(255, 255, 255, 0.7);
@@ -478,12 +587,15 @@
             text-decoration: none;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
         @media (max-width: 900px) {
             .about-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+            .services-grid,
             .benefits-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -492,7 +604,11 @@
             .hero-title {
                 font-size: 2.2rem;
             }
+            .services-grid,
             .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
                 grid-template-columns: 1fr;
             }
             .calc-wrapper {
@@ -527,50 +643,60 @@
 </head>
 <body>
 
-    <!-- ===== NAVIGATION ===== -->
+    <!-- ============================================================
+    NAVIGATION
+    ============================================================ -->
     <nav>
         <div class="container">
             <div class="logo">[Your Name] <span>|</span> Financial Planner</div>
             <div class="nav-links">
                 <a href="#about">About</a>
+                <a href="#services">Services</a>
                 <a href="#benefits">Why Plan</a>
-                <a href="#calculator">Calculator</a>
+                <a href="#calculator">Resources</a>
                 <a href="#contact" class="btn-nav">Book a Call</a>
             </div>
         </div>
     </nav>
 
-    <!-- ===== HERO ===== -->
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
     <section id="hero">
         <div class="container">
             <div class="hero-badge">✦ Trusted Financial Guidance</div>
             <h1 class="hero-title">Plan Today, <span class="gold">Thrive Tomorrow.</span></h1>
             <p class="hero-sub">
-                I help individuals build personalized financial roadmaps to achieve their goals,
-                protect loved ones, and grow wealth stress-free.
+                I help individuals build a clear, actionable roadmap to achieve their financial goals —
+                so you can focus on what matters most.
             </p>
+            <div class="hero-trust">
+                <span>Licensed Financial Planner</span> · Securities Commission Registered
+            </div>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Start Your Plan</a>
-                <a href="#benefits" class="btn btn-outline">Learn More</a>
+                <a href="#contact" class="btn btn-primary">Start Your Journey</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
+    <!-- ============================================================
+    ABOUT
+    ============================================================ -->
     <section id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-text">
-                    <h2>Hi, I'm <span style="color:var(--gold);">[Your Name]</span></h2>
+                    <h2>Hi, I'm <span class="gold">[Your Name]</span></h2>
                     <p>
                         I'm passionate about helping everyday people take control of their money
-                        and build a secure future. With years of experience in financial planning,
-                        I focus on creating clear, actionable strategies tailored to your unique
-                        situation — whether it's retirement, education, or wealth growth.
+                        and build a secure future. My approach is simple: <strong>listen first, plan second.</strong>
+                        No jargon, no pressure — just honest, transparent advice tailored to your unique situation.
                     </p>
                     <p>
-                        My approach is simple: <strong>listen first, plan second.</strong>
-                        No jargon, no pressure — just honest, transparent advice.
+                        Whether you're planning for retirement, saving for your child's education,
+                        or simply want to grow your wealth with confidence — I'm here to guide you
+                        every step of the way.
                     </p>
                     <div class="about-stats">
                         <div>
@@ -594,50 +720,81 @@
         </div>
     </section>
 
-    <!-- ===== BENEFITS (Why Plan) ===== -->
-    <section id="benefits">
+    <!-- ============================================================
+    SERVICES
+    ============================================================ -->
+    <section id="services">
         <div class="container">
-            <h2 class="section-title">Why Have a <span class="highlight">Financial Plan?</span></h2>
+            <h2 class="section-title">How I Can <span class="highlight">Help You</span></h2>
             <p class="section-sub">
-                Financial planning isn't just about numbers — it's about peace of mind,
-                freedom, and the confidence to chase your dreams.
+                Practical, personalized financial guidance for every stage of life.
             </p>
-            <div class="benefits-grid">
-                <div class="benefit-card">
+            <div class="services-grid">
+                <div class="service-card">
                     <span class="icon">🎯</span>
-                    <h3>Achieve Your Goals</h3>
+                    <h3>Define Your Goals</h3>
                     <p>
-                        Save for your child's education, buy your first home, or retire early
-                        with a clear target and a step-by-step roadmap.
+                        Whether it's buying a home, saving for education, or retiring early —
+                        I'll help you clarify and achieve your goals with a clear roadmap.
                     </p>
                 </div>
-                <div class="benefit-card">
+                <div class="service-card">
                     <span class="icon">🛡️</span>
-                    <h3>Manage Risks</h3>
+                    <h3>Protect What Matters</h3>
                     <p>
-                        Protect your family's lifestyle against unforeseen events — medical
-                        emergencies, job loss, or market downturns.
+                        Safeguard your family's future against life's uncertainties with a
+                        solid, comprehensive risk management plan.
                     </p>
                 </div>
-                <div class="benefit-card">
+                <div class="service-card">
                     <span class="icon">📈</span>
                     <h3>Grow Your Wealth</h3>
                     <p>
-                        Beat inflation and make your money work harder through strategic,
-                        diversified investments tailored to your risk profile.
+                        Navigate investments with confidence and a strategy tailored to your
+                        unique risk profile and long-term aspirations.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CALCULATOR ===== -->
+    <!-- ============================================================
+    WHY PLAN (BENEFITS)
+    ============================================================ -->
+    <section id="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Everyone Needs a <span class="highlight">Financial Plan</span></h2>
+            <p class="section-sub">
+                Financial planning isn't about restrictions — it's about freedom, clarity, and peace of mind.
+            </p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="icon">🧭</span>
+                    <h3>Clarity</h3>
+                    <p>Know exactly where you stand and where you're heading. No more guesswork about your financial future.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">💪</span>
+                    <h3>Confidence</h3>
+                    <p>Make informed decisions without second-guessing. Feel empowered about every financial choice you make.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">🕊️</span>
+                    <h3>Freedom</h3>
+                    <p>Spend, save, and invest with purpose. A solid plan gives you the freedom to enjoy life today while building for tomorrow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CALCULATOR (RESOURCES)
+    ============================================================ -->
     <section id="calculator">
         <div class="container">
             <h2 class="section-title">See How Your <span class="highlight">Money Grows</span></h2>
             <p class="section-sub">
-                Curious about your savings potential? Enter your numbers below and discover
-                the future value of your monthly investments.
+                Try this simple calculator to see the future value of your monthly savings.
             </p>
             <div class="calc-wrapper">
                 <div class="field">
@@ -669,16 +826,39 @@
         </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
+    <!-- ============================================================
+    TESTIMONIALS
+    ============================================================ -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What My <span class="highlight">Clients Say</span></h2>
+            <p class="section-sub">
+                Real feedback from real people I've had the privilege to work with.
+            </p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"Working with [Your Name] completely changed my perspective on money. I finally feel in control of my financial future."</p>
+                    <div class="author">— Sarah M. <span class="role">· Kuala Lumpur</span></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Finally, a financial planner who actually listens! No jargon, no pressure — just practical advice that made sense for my family."</p>
+                    <div class="author">— Ahmad R. <span class="role">· Selangor</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CONTACT
+    ============================================================ -->
     <section id="contact">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h2>Let's Plan Your <span style="color:var(--gold);">Future.</span></h2>
+                    <h2>Ready to Take Control of <span class="gold">Your Finances?</span></h2>
                     <p>
-                        Leave your details below, and I will reach out within 24 hours for a
-                        free, no-obligation consultation. No pressure — just a conversation
-                        about your goals.
+                        Book a free, no-obligation consultation today. I'll get back to you
+                        within 24 hours to understand your goals and how I can help.
                     </p>
                     <div class="contact-detail">
                         <span class="emoji">📧</span> <span>hello@yourdomain.com</span>
@@ -690,22 +870,24 @@
                         <span class="emoji">📍</span> <span>Kuala Lumpur, Malaysia</span>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+
+                <!-- ===== CONTACT FORM ===== -->
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="field">
                         <label for="name">Full Name *</label>
-                        <input type="text" id="name" placeholder="e.g., Ahmad bin Abdullah" required />
+                        <input type="text" id="name" name="name" placeholder="e.g., Ahmad bin Abdullah" required />
                     </div>
                     <div class="field">
                         <label for="email">Email Address *</label>
-                        <input type="email" id="email" placeholder="e.g., ahmad@email.com" required />
+                        <input type="email" id="email" name="email" placeholder="e.g., ahmad@email.com" required />
                     </div>
                     <div class="field">
                         <label for="phone">Phone Number</label>
-                        <input type="text" id="phone" placeholder="e.g., 012-3456789" />
+                        <input type="text" id="phone" name="phone" placeholder="e.g., 012-3456789" />
                     </div>
                     <div class="field">
                         <label for="message">Your Financial Goals</label>
-                        <textarea id="message" placeholder="Tell me about your goals — retirement, education, investment, or anything else..."></textarea>
+                        <textarea id="message" name="message" placeholder="Tell me about your goals — retirement, education, investment, or anything else..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-submit">Send Message</button>
                     <div class="form-success" id="formSuccess">✅ Thank you! I'll get back to you within 24 hours.</div>
@@ -714,7 +896,9 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
     <footer>
         <div class="container">
             <div style="font-weight:600; color:var(--white);">[Your Name] · Financial Planner</div>
@@ -728,9 +912,13 @@
         </div>
     </footer>
 
-    <!-- ===== JAVASCRIPT ===== -->
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
     <script>
-        // ===== FV CALCULATOR =====
+        // ============================================================
+        // FV CALCULATOR
+        // ============================================================
         document.getElementById('calcBtn').addEventListener('click', function() {
             const monthly = parseFloat(document.getElementById('monthly').value) || 0;
             const rate = parseFloat(document.getElementById('rate').value) || 0;
@@ -760,46 +948,42 @@
             document.getElementById('calcResult').classList.add('show');
         });
 
-        // ===== CONTACT FORM (FormSubmit) =====
+        // ============================================================
+        // CONTACT FORM (Formspree - Free, No Credit Card Required)
+        // ============================================================
         document.getElementById('contactForm').addEventListener('submit', function(e) {
+            // Formspree handles the submission natively via action=""
+            // We just need to show the success message and reset the form
+            // after a successful submission.
+            // But we'll let Formspree handle the actual POST.
+            // We'll add a listener to detect success via the fetch API
+            // to show the success message without page reload.
             e.preventDefault();
 
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const message = document.getElementById('message').value.trim();
+            const form = this;
+            const formData = new FormData(form);
 
-            if (!name || !email) {
-                alert('Please fill in your Name and Email.');
-                return;
-            }
-
-            // Send to FormSubmit (free, no backend required)
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('phone', phone);
-            formData.append('message', message);
-
-            // ⚠️ IMPORTANT: Replace 'your-yahoo-email@yahoo.com' with YOUR actual email!
-            const YOUR_EMAIL = 'qun905@yahoo.com';
-
-            fetch('https://formsubmit.co/ajax/' + YOUR_EMAIL, {
+            fetch(form.action, {
                     method: 'POST',
-                    body: formData
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
                 })
-                .then(response => response.ok ? response.json() : Promise.reject('Network error'))
-                .then(data => {
-                    document.getElementById('formSuccess').classList.add('show');
-                    document.getElementById('contactForm').reset();
-                    // Hide success after 6 seconds
-                    setTimeout(() => {
-                        document.getElementById('formSuccess').classList.remove('show');
-                    }, 6000);
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('formSuccess').classList.add('show');
+                        form.reset();
+                        setTimeout(() => {
+                            document.getElementById('formSuccess').classList.remove('show');
+                        }, 6000);
+                    } else {
+                        alert('⚠️ Something went wrong. Please try again or email me directly.');
+                    }
                 })
                 .catch(error => {
-                    alert('⚠️ Something went wrong. Please email me directly at hello@yourdomain.com or try again.');
-                    console.error('FormSubmit error:', error);
+                    alert('⚠️ Something went wrong. Please try again or email me directly.');
+                    console.error('Formspree error:', error);
                 });
         });
     </script>
