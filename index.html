@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Catherine Tan | 财富导航师 · Wealth Navigator</title>
+<meta name="description" content="Catherine Tan — Licensed Financial Planner. Clarity in wealth. Freedom in life. 让财富更清晰，让人生更有选择。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+<style>
+    /* ============================================================
+       RESET & VARIABLES
+       ============================================================ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+        --navy: #0b1b33;
+        --navy-soft: #14284a;
+        --gold: #d4a843;
+        --gold-dark: #c49a38;
+        --gold-light: #f0e0b0;
+        --white: #ffffff;
+        --off-white: #f8fafc;
+        --grey: #4a5a72;
+        --light-grey: #e8edf4;
+        --shadow: 0 8px 32px rgba(11, 27, 51, 0.08);
+        --radius: 16px;
+        --transition: 0.25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--off-white);
+        color: var(--navy);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    nav {
+        background: var(--navy);
+        padding: 14px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+    }
+    nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .logo {
+        color: var(--white);
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+        line-height: 1.3;
+    }
+    .logo span { color: var(--gold); }
+    .logo small {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        color: rgba(255, 255, 255, 0.45);
+        text-transform: uppercase;
+    }
+    .nav-links { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+    .nav-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 500;
+        transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .btn-nav {
+        background: var(--gold);
+        color: var(--navy) !important;
+        padding: 8px 22px;
+        border-radius: 40px;
+        font-weight: 600 !important;
+        transition: background var(--transition), transform var(--transition);
+    }
+    .btn-nav:hover { background: var(--gold-dark) !important; transform: scale(1.03); }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+        display: inline-block;
+        padding: 14px 36px;
+        border-radius: 60px;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background var(--transition), transform var(--transition), color var(--transition);
+    }
+    .btn-primary { background: var(--gold); color: var(--navy); }
+    .btn-primary:hover { background: var(--gold-dark); transform: scale(1.02); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--gold); }
+    .btn-outline:hover { background: var(--gold); color: var(--navy); }
+    .btn-submit { background: var(--navy); color: var(--white); padding: 14px 40px; }
+    .btn-submit:hover { background: #1a3155; transform: scale(1.02); }
+
+    /* ============================================================
+       SECTIONS
+       ============================================================ */
+    section { padding: 80px 0; }
+    .section-title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 2.3rem;
+        font-weight: 600;
+        letter-spacing: -0.5px;
+        line-height: 1.25;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+    .section-title .highlight { color: var(--gold); }
+    .section-sub {
+        text-align: center;
+        color: var(--grey);
+        max-width: 660px;
+        margin: 0 auto 52px;
+        font-size: 1.05rem;
+    }
+    .eyebrow {
+        display: block;
+        text-align: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 14px;
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    #hero {
+        background: var(--navy);
+        color: var(--white);
+        padding: 90px 0 100px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    #hero::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(212, 168, 67, 0.07), transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    #hero::before {
+        content: '';
+        position: absolute;
+        bottom: -60%;
+        left: -15%;
+        width: 520px;
+        height: 520px;
+        background: radial-gradient(circle, rgba(212, 168, 67, 0.05), transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    #hero .container { position: relative; z-index: 1; }
+    .hero-badge {
+        display: inline-block;
+        background: rgba(212, 168, 67, 0.15);
+        color: var(--gold-light);
+        padding: 6px 20px;
+        border-radius: 40px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 26px;
+    }
+    .hero-title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 3.4rem;
+        font-weight: 600;
+        letter-spacing: -1px;
+        line-height: 1.12;
+        margin-bottom: 10px;
+    }
+    .hero-title .gold { color: var(--gold); }
+    .hero-cn {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.85);
+        letter-spacing: 2px;
+        margin-bottom: 28px;
+    }
+    .hero-sub {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.72);
+        max-width: 680px;
+        margin: 0 auto 20px;
+    }
+    .hero-quote {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-style: italic;
+        font-size: 1.25rem;
+        color: var(--gold-light);
+        max-width: 620px;
+        margin: 0 auto 18px;
+    }
+    .hero-trust {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 34px;
+        letter-spacing: 0.4px;
+    }
+    .hero-trust span { color: var(--gold-light); }
+    .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+
+    /* ============================================================
+       PRODUCTS vs DIRECTION
+       ============================================================ */
+    #direction { background: var(--white); }
+    .direction-lead {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 14px;
+        font-size: 1.05rem;
+        color: var(--grey);
+    }
+    .direction-lead strong { color: var(--navy); }
+    .questions-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 940px;
+        margin: 48px auto 0;
+    }
+    .question-item {
+        background: var(--off-white);
+        border-left: 3px solid var(--gold);
+        border-radius: 12px;
+        padding: 20px 22px;
+        font-size: 0.94rem;
+        color: var(--grey);
+        transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .question-item:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .direction-note {
+        text-align: center;
+        margin-top: 44px;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.3rem;
+        color: var(--navy);
+    }
+
+    /* ============================================================
+       FRAMEWORK
+       ============================================================ */
+    #framework { background: var(--off-white); }
+    .framework-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+    }
+    .frame-card {
+        background: var(--white);
+        padding: 32px 28px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--gold);
+        transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .frame-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 44px rgba(11, 27, 51, 0.11);
+    }
+    .frame-num {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 12px;
+    }
+    .frame-card h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: 8px; }
+    .frame-card p { color: var(--grey); font-size: 0.94rem; }
+    .frame-card p + p { margin-top: 10px; }
+
+    /* ============================================================
+       PHILOSOPHY (DARK)
+       ============================================================ */
+    #philosophy {
+        background: var(--navy);
+        color: var(--white);
+        text-align: center;
+    }
+    #philosophy .section-title { color: var(--white); }
+    #philosophy .section-title .highlight { color: var(--gold); }
+    .philosophy-lead {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.6rem;
+        color: var(--gold-light);
+        max-width: 720px;
+        margin: 0 auto 30px;
+        line-height: 1.5;
+    }
+    .philosophy-body {
+        max-width: 700px;
+        margin: 0 auto;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 1.05rem;
+    }
+    .philosophy-body p + p { margin-top: 16px; }
+    .philosophy-trio {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin: 40px auto 0;
+        max-width: 720px;
+    }
+    .philosophy-trio span {
+        border: 1px solid rgba(212, 168, 67, 0.45);
+        border-radius: 60px;
+        padding: 10px 28px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--gold-light);
+        letter-spacing: 0.5px;
+    }
+
+    /* ============================================================
+       ABOUT
+       ============================================================ */
+    #about { background: var(--white); }
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 56px;
+        align-items: center;
+    }
+    .about-text h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+    .about-text h2 .gold { color: var(--gold); }
+    .about-text p { color: var(--grey); font-size: 1.03rem; margin-bottom: 16px; }
+    .about-text p strong { color: var(--navy); }
+    .about-stats { display: flex; gap: 34px; margin-top: 28px; flex-wrap: wrap; }
+    .about-stats div { text-align: left; }
+    .about-stats .number {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.7rem;
+        font-weight: 600;
+        color: var(--gold);
+        line-height: 1.2;
+    }
+    .about-stats .label { font-size: 0.82rem; color: var(--grey); }
+    .about-image {
+        background: linear-gradient(150deg, var(--navy) 0%, var(--navy-soft) 100%);
+        border-radius: var(--radius);
+        min-height: 340px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 32px;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    .about-image .monogram {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 3.4rem;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 14px;
+    }
+    .about-image .name { font-weight: 700; font-size: 1.05rem; }
+    .about-image .role {
+        font-size: 0.82rem;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 6px;
+    }
+    .about-image .divider {
+        width: 44px;
+        height: 2px;
+        background: var(--gold);
+        margin: 18px 0;
+    }
+    .about-image .tagline {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.6);
+        letter-spacing: 1px;
+    }
+
+    /* ============================================================
+       PODCAST
+       ============================================================ */
+    #podcast { background: var(--off-white); }
+    .podcast-card {
+        max-width: 780px;
+        margin: 0 auto;
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 44px 48px;
+        text-align: center;
+        border-top: 4px solid var(--gold);
+    }
+    .podcast-card .pod-icon { font-size: 2.4rem; margin-bottom: 10px; display: block; }
+    .podcast-card h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 14px;
+    }
+    .podcast-card p { color: var(--grey); font-size: 1rem; margin-bottom: 16px; }
+    .podcast-card .pull {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-style: italic;
+        font-size: 1.15rem;
+        color: var(--navy);
+        margin: 22px auto;
+        max-width: 560px;
+    }
+    .podcast-card .btn { margin-top: 8px; }
+
+    /* ============================================================
+       WHO I WORK WITH
+       ============================================================ */
+    #who { background: var(--white); }
+    .who-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+    }
+    .who-card {
+        background: var(--off-white);
+        border-radius: var(--radius);
+        padding: 28px 22px;
+        text-align: center;
+        border-bottom: 3px solid var(--gold);
+        transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .who-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .who-card .icon { font-size: 1.9rem; display: block; margin-bottom: 10px; }
+    .who-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        letter-spacing: 0.3px;
+    }
+    .who-card p { font-size: 0.88rem; color: var(--grey); }
+    .who-note {
+        text-align: center;
+        margin-top: 42px;
+        font-size: 1.02rem;
+        color: var(--grey);
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .who-note strong { color: var(--navy); }
+
+    /* ============================================================
+       APPROACH
+       ============================================================ */
+    #approach { background: var(--off-white); }
+    .approach-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+    }
+    .step {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 28px 22px;
+        box-shadow: var(--shadow);
+        position: relative;
+        transition: transform var(--transition);
+    }
+    .step:hover { transform: translateY(-4px); }
+    .step .step-num {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 12px;
+    }
+    .step h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 0.88rem; color: var(--grey); }
+
+    /* ============================================================
+       JOURNEY / FIVE STAGES
+       ============================================================ */
+    #journey {
+        background: var(--navy);
+        color: var(--white);
+        text-align: center;
+    }
+    #journey .section-title { color: var(--white); }
+    #journey .section-title .highlight { color: var(--gold); }
+    #journey .section-sub { color: rgba(255, 255, 255, 0.65); }
+    .stages {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+        margin-top: 8px;
+    }
+    .stage {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(212, 168, 67, 0.25);
+        border-radius: var(--radius);
+        padding: 28px 20px;
+        transition: background var(--transition), transform var(--transition), border-color var(--transition);
+    }
+    .stage:hover {
+        background: rgba(212, 168, 67, 0.1);
+        border-color: var(--gold);
+        transform: translateY(-4px);
+    }
+    .stage .stage-index {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: var(--gold);
+        margin-bottom: 10px;
+    }
+    .stage h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+        color: var(--white);
+    }
+    .stage p { font-size: 0.86rem; color: rgba(255, 255, 255, 0.62); }
+    .stage-flow {
+        margin-top: 44px;
+        font-size: 0.9rem;
+        letter-spacing: 1.5px;
+        color: var(--gold-light);
+        font-weight: 600;
+        line-height: 2;
+    }
+
+    /* ============================================================
+       WEALTH MEANING (QUOTE BLOCK)
+       ============================================================ */
+    #meaning { background: var(--white); }
+    .meaning-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto 52px;
+    }
+    .meaning-list div {
+        text-align: center;
+        font-size: 0.94rem;
+        color: var(--grey);
+        padding: 22px 16px;
+        background: var(--off-white);
+        border-radius: 12px;
+        border-top: 3px solid var(--gold);
+    }
+    .meaning-close {
+        text-align: center;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.5rem;
+        line-height: 1.55;
+        color: var(--navy);
+        max-width: 720px;
+        margin: 0 auto;
+    }
+    .meaning-close em { color: var(--gold); font-style: italic; }
+
+    /* ============================================================
+       CALCULATOR
+       ============================================================ */
+    #calculator { background: var(--off-white); }
+    .calc-wrapper {
+        max-width: 640px;
+        margin: 0 auto;
+        background: var(--white);
+        padding: 40px 44px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+    }
+    .calc-wrapper .field { margin-bottom: 20px; }
+    .calc-wrapper label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+    }
+    .calc-wrapper input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid var(--light-grey);
+        border-radius: 10px;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: border var(--transition);
+        background: var(--white);
+    }
+    .calc-wrapper input:focus { outline: none; border-color: var(--gold); }
+    .calc-wrapper .input-hint { font-size: 0.8rem; color: var(--grey); margin-top: 2px; }
+    .calc-wrapper .btn { width: 100%; justify-content: center; margin-top: 8px; }
+    .calc-result {
+        margin-top: 28px;
+        padding: 24px;
+        background: var(--navy);
+        border-radius: var(--radius);
+        color: var(--white);
+        display: none;
+    }
+    .calc-result.show { display: block; }
+    .calc-result .fv-number {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--gold);
+        letter-spacing: -0.5px;
+    }
+    .calc-result .fv-breakdown {
+        display: flex;
+        gap: 32px;
+        margin-top: 12px;
+        font-size: 0.95rem;
+        flex-wrap: wrap;
+    }
+    .calc-result .fv-breakdown span { color: rgba(255, 255, 255, 0.7); }
+    .calc-result .fv-breakdown strong { color: var(--white); }
+
+    /* ============================================================
+       CONTACT
+       ============================================================ */
+    #contact { background: var(--white); }
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: start;
+    }
+    .contact-info h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        line-height: 1.3;
+    }
+    .contact-info h2 .gold { color: var(--gold); }
+    .contact-info p { color: var(--grey); font-size: 1.03rem; margin-bottom: 18px; }
+    .contact-detail {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+        color: var(--grey);
+        font-size: 0.98rem;
+    }
+    .contact-detail .emoji { font-size: 1.2rem; }
+    .contact-detail a { color: var(--grey); text-decoration: none; }
+    .contact-detail a:hover { color: var(--gold); }
+
+    .contact-form {
+        background: var(--off-white);
+        padding: 34px 36px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--gold);
+    }
+    .contact-form .field { margin-bottom: 18px; }
+    .contact-form label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+    }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid var(--light-grey);
+        border-radius: 10px;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: border var(--transition);
+        background: var(--white);
+        color: var(--navy);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus { outline: none; border-color: var(--gold); }
+    .contact-form textarea { min-height: 110px; resize: vertical; }
+    .form-success {
+        display: none;
+        padding: 16px;
+        background: #dff0d8;
+        color: #2d6a4f;
+        border-radius: 10px;
+        margin-top: 12px;
+        font-weight: 600;
+    }
+    .form-success.show { display: block; }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 48px 0 36px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+    footer .footer-brand {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--white);
+    }
+    footer .footer-brand span { color: var(--gold); }
+    footer .footer-tag {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 6px;
+        letter-spacing: 0.5px;
+    }
+    footer .footer-divider {
+        width: 60px;
+        height: 2px;
+        background: var(--gold);
+        margin: 20px auto;
+    }
+    footer .disclaimer {
+        max-width: 720px;
+        margin: 14px auto 0;
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.45);
+        line-height: 1.7;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 980px) {
+        .about-grid,
+        .contact-grid { grid-template-columns: 1fr; }
+        .questions-grid { grid-template-columns: 1fr 1fr; }
+        .framework-grid { grid-template-columns: 1fr 1fr; }
+        .who-grid,
+        .approach-grid,
+        .stages,
+        .meaning-list { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+        section { padding: 52px 0; }
+        .hero-title { font-size: 2.2rem; }
+        .hero-quote { font-size: 1.05rem; }
+        .section-title { font-size: 1.75rem; }
+        .questions-grid,
+        .framework-grid,
+        .who-grid,
+        .approach-grid,
+        .stages,
+        .meaning-list { grid-template-columns: 1fr; }
+        .calc-wrapper { padding: 26px 20px; }
+        .contact-form { padding: 26px 20px; }
+        .podcast-card { padding: 32px 22px; }
+        .nav-links { gap: 14px; }
+        .nav-links a { font-size: 0.8rem; }
+        .btn-nav { padding: 6px 14px; font-size: 0.8rem; }
+        .calc-result .fv-breakdown { flex-direction: column; gap: 6px; }
+        .philosophy-lead { font-size: 1.25rem; }
+        .meaning-close { font-size: 1.2rem; }
+    }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav>
+    <div class="container">
+        <div class="logo">
+            Catherine Tan <span>·</span> 财富导航师
+            <small>Wealth Navigator</small>
+        </div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#framework">Framework</a>
+            <a href="#who">Who I Work With</a>
+            <a href="#approach">Approach</a>
+            <a href="#podcast">Podcast</a>
+            <a href="#contact" class="btn-nav">Book a Consultation</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="hero">
+    <div class="container">
+        <div class="hero-badge">✦ Licensed Financial Planner</div>
+        <h1 class="hero-title">财富导航师 <span class="gold">| Wealth Navigator</span></h1>
+        <p class="hero-cn">让财富更清晰，让人生更有选择。</p>
+        <p class="hero-quote">Money is not the destination.</p>
+        <p class="hero-sub">
+            It is a tool to protect the people you love, care for your health, build the life you want,
+            and create the freedom to choose what comes next.
+        </p>
+        <p class="hero-sub">
+            As a Licensed Financial Planner, I help you understand your financial position, identify what
+            matters most, and build a financial strategy that supports the life you want to live.
+        </p>
+        <div class="hero-trust">
+            <span>Your life has a direction. Your wealth should too.</span>
+        </div>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Start Your Financial Journey</a>
+            <a href="#framework" class="btn btn-outline">Explore the Framework</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     PRODUCTS vs DIRECTION
+     ============================================================ -->
+<section id="direction">
+    <div class="container">
+        <span class="eyebrow">The Real Problem</span>
+        <h2 class="section-title">You don't need more <span class="highlight">financial products.</span></h2>
+        <p class="section-sub">You need a clearer direction.</p>
+
+        <p class="direction-lead">
+            You may already have insurance, investments, EPF, savings and property.
+            <br /><strong>But do they actually work together?</strong>
+        </p>
+
+        <div class="questions-grid">
+            <div class="question-item">Am I financially on track?</div>
+            <div class="question-item">Do I have enough protection for myself and my family?</div>
+            <div class="question-item">Am I investing according to my goals?</div>
+            <div class="question-item">How much do I really need for retirement?</div>
+            <div class="question-item">How should I plan for my child's future?</div>
+            <div class="question-item">What happens to my wealth if something happens to me?</div>
+            <div class="question-item">Have I properly planned how my assets will be passed on?</div>
+            <div class="question-item">Can my current wealth support the lifestyle I want?</div>
+            <div class="question-item">Do all the pieces actually fit together?</div>
+        </div>
+
+        <p class="direction-note">
+            Financial planning begins by answering these questions —
+            <span style="color: var(--gold);">not by recommending a product.</span>
+        </p>
+    </div>
+</section>
+
+<!-- ============================================================
+     FRAMEWORK
+     ============================================================ -->
+<section id="framework">
+    <div class="container">
+        <span class="eyebrow">My Wealth Navigation Framework</span>
+        <h2 class="section-title">Navigate Your Wealth. <span class="highlight">Build Your Life.</span></h2>
+        <p class="section-sub">
+            Seven connected pillars that turn scattered financial products into one coherent strategy.
+        </p>
+
+        <div class="framework-grid">
+            <div class="frame-card">
+                <div class="frame-num">01</div>
+                <h3>Financial Clarity</h3>
+                <p>Understand your current financial position — your income, expenses, assets, liabilities,
+                    protection and investments.</p>
+            </div>
+            <div class="frame-card">
+                <div class="frame-num">02</div>
+                <h3>Protection Planning</h3>
+                <p>Protect your income, health, family and financial goals against life's unexpected events.</p>
+            </div>
+            <div class="frame-card">
+                <div class="frame-num">03</div>
+                <h3>Investment Planning</h3>
+                <p>Create an investment strategy aligned with your goals, time horizon and risk profile.</p>
+            </div>
+            <div class="frame-card">
+                <div class="frame-num">04</div>
+                <h3>Retirement Planning</h3>
+                <p>Work backwards from the lifestyle you want and determine what you need to build towards
+                    financial independence.</p>
+            </div>
+            <div class="frame-card">
+                <div class="frame-num">05</div>
+                <h3>Estate Planning</h3>
+                <p>Make sure the wealth you've worked hard to build is transferred according to your wishes.</p>
+                <p>This may include reviewing your wealth structure, nominations, beneficiaries and estate
+                    distribution strategy.</p>
+            </div>
+            <div class="frame-card">
+                <div class="frame-num">06</div>
+                <h3>Family &amp; Legacy Planning</h3>
+                <p>Plan for the people and milestones that matter — from children's education to family
+                    responsibilities and the legacy you want to leave behind.</p>
+            </div>
+            <div class="frame-card">
+                <div class="frame-num">07</div>
+                <h3>Ongoing Wealth Management</h3>
+                <p>Your life doesn't stay the same. Your income changes. Your family grows. Your priorities
+                    evolve.</p>
+                <p>Your financial plan should evolve with you.</p>
+            </div>
+        </div>
+
+        <p class="direction-note" style="margin-top:44px;">
+            Building wealth is only half the journey.
+            <span style="color: var(--gold);">Knowing how to pass it on matters too.</span>
+        </p>
+    </div>
+</section>
+
+<!-- ============================================================
+     PHILOSOPHY
+     ============================================================ -->
+<section id="philosophy">
+    <div class="container">
+        <span class="eyebrow">My Philosophy</span>
+        <h2 class="section-title">Health is wealth. <span class="highlight">Wealth is choice.</span></h2>
+
+        <p class="philosophy-lead">
+            I believe wealth should never be measured by money alone.
+        </p>
+
+        <div class="philosophy-body">
+            <p>Your health allows you to enjoy your wealth.</p>
+            <p>Your wealth gives you the freedom to make choices.</p>
+            <p>And together, they give you the ability to live life with greater confidence and intention.</p>
+            <p style="margin-top:24px;">
+                As both a Licensed Financial Planner and Pilates instructor, I see these two areas as deeply
+                connected.
+            </p>
+        </div>
+
+        <div class="philosophy-trio">
+            <span>Strong Body.</span>
+            <span>Strong Wealth.</span>
+            <span>Strong Life.</span>
+        </div>
+
+        <p class="philosophy-body" style="margin-top:36px;">
+            Financial planning isn't simply about accumulating more. It's about having the health, resources
+            and freedom to live the life you worked so hard to build.
+        </p>
+    </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <span class="eyebrow" style="text-align:left;">About Catherine</span>
+                <h2>I'm not here to tell you <span class="gold">what to buy.</span></h2>
+                <p><strong>I'm here to help you see the bigger picture.</strong></p>
+                <p>
+                    I started my career in corporate sales before entering financial planning in 2018.
+                    Over the years, I realised something: many people don't lack financial products.
+                    They lack <strong>clarity</strong>.
+                </p>
+                <p>
+                    They may have an insurance policy here, an investment there, some EPF, savings, property
+                    and other assets — but no clear picture of how everything fits together. That's where I
+                    believe a good financial planner adds value.
+                </p>
+                <p>
+                    I help you step back, look at the bigger picture, identify the gaps and make informed
+                    decisions based on what you actually want your life to look like.
+                </p>
+                <p>
+                    Today, I also work in the movement and wellness space as a Pilates instructor. That
+                    experience has reinforced one of my strongest beliefs:
+                </p>
+                <p style="font-family:'Playfair Display',Georgia,serif; font-size:1.15rem; color:var(--navy);">
+                    You can have all the wealth in the world, but if you don't have the health to enjoy it,
+                    what is it worth?
+                </p>
+
+                <div class="about-stats">
+                    <div>
+                        <div class="number">2018</div>
+                        <div class="label">In financial planning since</div>
+                    </div>
+                    <div>
+                        <div class="number">7</div>
+                        <div class="label">Pillars of navigation</div>
+                    </div>
+                    <div>
+                        <div class="number">100%</div>
+                        <div class="label">Client-first approach</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-image">
+                <div class="monogram">CT</div>
+                <div class="name">Catherine Tan</div>
+                <div class="role">Licensed Financial Planner</div>
+                <div class="divider"></div>
+                <div class="tagline">财富导航师 · Wealth Navigator</div>
+                <div class="tagline" style="margin-top:8px;">Clarity in wealth. Freedom in life.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     PODCAST
+     ============================================================ -->
+<section id="podcast">
+    <div class="container">
+        <span class="eyebrow">From Financial Planning to Financial Education</span>
+        <h2 class="section-title">We can't learn about money <span class="highlight">if we don't talk about it.</span></h2>
+        <p class="section-sub">
+            Better financial decisions often begin with simply having the right conversation.
+        </p>
+
+        <div class="podcast-card">
+            <span class="pod-icon">🎙️</span>
+            <h3>My Personal Finances PodCat</h3>
+            <p>
+                Early in my financial planning career, I hosted My Personal Finances PodCat, where I had the
+                privilege of having honest conversations about money and life with people from all walks of life.
+            </p>
+            <p>
+                It made me realise how little we talk about money — especially in Asian culture, where it can
+                often be a taboo subject.
+            </p>
+            <p class="pull">
+                But how do we learn if we don't ask, share and talk about it?
+            </p>
+            <p>
+                I believe money conversations should be more open, honest and less intimidating.
+            </p>
+            <a class="btn btn-primary"
+               href="https://open.spotify.com/show/49an3JD6uAaqEw5qQS8tie"
+               target="_blank" rel="noopener">Listen on Spotify</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     WHO I WORK WITH
+     ============================================================ -->
+<section id="who">
+    <div class="container">
+        <span class="eyebrow">Who I Work With</span>
+        <h2 class="section-title">For people who take their <span class="highlight">future seriously.</span></h2>
+        <p class="section-sub">
+            I particularly enjoy working with young professionals, business owners and young families who are
+            building their careers, wealth and families at the same time.
+        </p>
+
+        <div class="who-grid">
+            <div class="who-card">
+                <span class="icon">🌱</span>
+                <h3>Building</h3>
+                <p>Your career, income and first significant pool of wealth.</p>
+            </div>
+            <div class="who-card">
+                <span class="icon">📈</span>
+                <h3>Growing</h3>
+                <p>Your investments, family and financial independence.</p>
+            </div>
+            <div class="who-card">
+                <span class="icon">🛡️</span>
+                <h3>Protecting</h3>
+                <p>Your health, income, family and the lifestyle you've worked hard to build.</p>
+            </div>
+            <div class="who-card">
+                <span class="icon">🏛️</span>
+                <h3>Preserving</h3>
+                <p>Your wealth and ensuring it reaches the people and causes that matter to you.</p>
+            </div>
+            <div class="who-card">
+                <span class="icon">🧭</span>
+                <h3>Preparing</h3>
+                <p>For retirement, financial independence and the next chapter of life.</p>
+            </div>
+        </div>
+
+        <p class="who-note">
+            You don't need to be wealthy to start planning.<br />
+            <strong>You simply need to care about where you're going.</strong>
+        </p>
+    </div>
+</section>
+
+<!-- ============================================================
+     APPROACH
+     ============================================================ -->
+<section id="approach">
+    <div class="container">
+        <span class="eyebrow">My Approach</span>
+        <h2 class="section-title">No jargon. No pressure. <span class="highlight">No one-size-fits-all formula.</span></h2>
+        <p class="section-sub">A clear five-step process, built entirely around you.</p>
+
+        <div class="approach-grid">
+            <div class="step">
+                <div class="step-num">01</div>
+                <h3>Discover</h3>
+                <p>We start with you — not your products. I understand your life, priorities, concerns and goals.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <h3>Diagnose</h3>
+                <p>We look at your financial picture as a whole and identify what's working, what's missing and
+                    what needs attention.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <h3>Navigate</h3>
+                <p>We build a strategy that connects your money to your goals.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">04</div>
+                <h3>Implement</h3>
+                <p>We put the appropriate solutions in place and make sure you understand why each decision is
+                    being made.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">05</div>
+                <h3>Review</h3>
+                <p>Life changes. Your plan should evolve with it.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     JOURNEY / FIVE STAGES
+     ============================================================ -->
+<section id="journey">
+    <div class="container">
+        <span class="eyebrow">The Journey</span>
+        <h2 class="section-title">Your journey, in <span class="highlight">five elegant stages.</span></h2>
+        <p class="section-sub">Where you are today — and where you're heading next.</p>
+
+        <div class="stages">
+            <div class="stage">
+                <div class="stage-index">STAGE 01</div>
+                <h3>CLARITY</h3>
+                <p>Where am I today?</p>
+            </div>
+            <div class="stage">
+                <div class="stage-index">STAGE 02</div>
+                <h3>PROTECTION</h3>
+                <p>What could derail my plans?</p>
+            </div>
+            <div class="stage">
+                <div class="stage-index">STAGE 03</div>
+                <h3>GROWTH</h3>
+                <p>How do I build towards my goals?</p>
+            </div>
+            <div class="stage">
+                <div class="stage-index">STAGE 04</div>
+                <h3>FREEDOM</h3>
+                <p>How do I make my wealth support the life I want?</p>
+            </div>
+            <div class="stage">
+                <div class="stage-index">STAGE 05</div>
+                <h3>LEGACY</h3>
+                <p>What happens to my wealth after me?</p>
+            </div>
+        </div>
+
+        <div class="stage-flow">
+            Clarity → Protection → Growth → Freedom → Legacy
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     WHAT WEALTH MAKES POSSIBLE
+     ============================================================ -->
+<section id="meaning">
+    <div class="container">
+        <span class="eyebrow">What It's Really For</span>
+        <h2 class="section-title">Wealth is more than <span class="highlight">what you accumulate.</span></h2>
+        <p class="section-sub">It's what your wealth makes possible.</p>
+
+        <div class="meaning-list">
+            <div>The ability to take care of your family.</div>
+            <div>The freedom to pursue work that matters.</div>
+            <div>The confidence to face an unexpected illness.</div>
+            <div>The ability to enjoy your retirement.</div>
+            <div>The ability to leave something meaningful behind.</div>
+        </div>
+
+        <p class="meaning-close">
+            That's why I don't see financial planning as simply managing money.<br />
+            It's <em>navigating life through money.</em>
+        </p>
+    </div>
+</section>
+
+<!-- ============================================================
+     CALCULATOR
+     ============================================================ -->
+<section id="calculator">
+    <div class="container">
+        <span class="eyebrow">Free Resource</span>
+        <h2 class="section-title">See how your <span class="highlight">money grows.</span></h2>
+        <p class="section-sub">
+            A simple starting point — see the future value of your monthly savings over time.
+        </p>
+
+        <div class="calc-wrapper">
+            <div class="field">
+                <label for="monthly">Monthly Savings (RM)</label>
+                <input type="number" id="monthly" value="500" min="0" />
+                <div class="input-hint">e.g., 500</div>
+            </div>
+            <div class="field">
+                <label for="rate">Annual Interest Rate (%)</label>
+                <input type="number" id="rate" value="6.0" step="0.1" min="0" />
+                <div class="input-hint">e.g., 6.0</div>
+            </div>
+            <div class="field">
+                <label for="years">Number of Years</label>
+                <input type="number" id="years" value="20" min="1" />
+                <div class="input-hint">e.g., 20</div>
+            </div>
+            <button class="btn btn-primary" id="calcBtn">Calculate Future Value</button>
+
+            <div class="calc-result" id="calcResult">
+                <div style="font-size:0.9rem; opacity:0.7; margin-bottom:4px;">Estimated Future Value</div>
+                <div class="fv-number" id="fvTotal">RM 0</div>
+                <div class="fv-breakdown">
+                    <div><span>Total Principal:</span> <strong id="fvPrincipal">RM 0</strong></div>
+                    <div><span>Total Interest Earned:</span> <strong id="fvInterest">RM 0</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section id="contact">
+    <div class="container">
+        <span class="eyebrow">Let's Find Your Direction</span>
+        <h2 class="section-title">Start Your <span class="highlight">Wealth Navigation.</span></h2>
+        <p class="section-sub">
+            Not sure where you stand financially? You don't need to have everything figured out before you
+            start. That's what the conversation is for.
+        </p>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Let's look at where you are, <span class="gold">where you want to go</span>, and whether
+                    your current financial strategy is taking you there.</h2>
+                <p>
+                    Book a no-obligation consultation. I'll get back to you to understand your goals and how
+                    I can help.
+                </p>
+                <div class="contact-detail">
+                    <span class="emoji">📧</span>
+                    <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
+                </div>
+                <div class="contact-detail">
+                    <span class="emoji">📱</span>
+                    <a href="tel:+60123456789">+60 12-345 6789</a>
+                </div>
+                <div class="contact-detail">
+                    <span class="emoji">📍</span>
+                    <span>Kuala Lumpur, Malaysia</span>
+                </div>
+                <div class="contact-detail">
+                    <span class="emoji">🎙️</span>
+                    <a href="https://open.spotify.com/show/49an3JD6uAaqEw5qQS8tie"
+                       target="_blank" rel="noopener">My Personal Finances PodCat</a>
+                </div>
+            </div>
+
+            <!-- ===== CONTACT FORM (Formspree) ===== -->
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/mzepgevl" method="POST">
+                <input type="hidden" name="_subject" value="New Wealth Navigation Inquiry — Website" />
+                <div class="field">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="e.g., Ahmad bin Abdullah" required />
+                </div>
+                <div class="field">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="e.g., ahmad@email.com" required />
+                </div>
+                <div class="field">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" placeholder="e.g., 012-3456789" />
+                </div>
+                <div class="field">
+                    <label for="topic">What would you like to focus on?</label>
+                    <select id="topic" name="topic">
+                        <option value="">Select a starting point…</option>
+                        <option>Financial Clarity</option>
+                        <option>Protection Planning</option>
+                        <option>Investment Planning</option>
+                        <option>Retirement Planning</option>
+                        <option>Estate Planning</option>
+                        <option>Family &amp; Legacy Planning</option>
+                        <option>Ongoing Wealth Management</option>
+                        <option>Not sure yet — let's talk</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="message">Tell me about your goals</label>
+                    <textarea id="message" name="message"
+                        placeholder="Retirement, education, protection, estate distribution, or anything else on your mind…"></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">Book a Consultation</button>
+                <div class="form-success" id="formSuccess">✅ Thank you! I'll get back to you soon.</div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+    <div class="container">
+        <div class="footer-brand">Catherine Tan <span>|</span> 财富导航师</div>
+        <div class="footer-tag">让财富更清晰，让人生更有选择。<br />Clarity in wealth. Freedom in life.</div>
+        <div class="footer-divider"></div>
+        <div>© 2026 Catherine Tan. All rights reserved.</div>
+        <div class="disclaimer">
+            ⚠️ <strong>Disclaimer:</strong> This website and the calculator provided are for illustrative and
+            educational purposes only. Actual returns may vary based on market conditions, fees and individual
+            circumstances. Nothing here constitutes personalised financial advice. Please consult a licensed
+            financial professional for advice tailored to your situation.
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+    // ============================================================
+    // FUTURE VALUE CALCULATOR
+    // ============================================================
+    document.getElementById('calcBtn').addEventListener('click', function () {
+        const monthly = parseFloat(document.getElementById('monthly').value) || 0;
+        const rate = parseFloat(document.getElementById('rate').value) || 0;
+        const years = parseFloat(document.getElementById('years').value) || 0;
+
+        if (monthly <= 0 || rate < 0 || years <= 0) {
+            alert('Please enter valid numbers (Monthly Savings > 0, Rate ≥ 0, Years > 0).');
+            return;
+        }
+
+        const monthlyRate = rate / 100 / 12;
+        const totalMonths = years * 12;
+        let fv;
+
+        if (monthlyRate === 0) {
+            fv = monthly * totalMonths;
+        } else {
+            fv = monthly * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
+        }
+
+        const totalPrincipal = monthly * totalMonths;
+        const totalInterest = fv - totalPrincipal;
+
+        document.getElementById('fvTotal').textContent = 'RM ' + fv.toFixed(2);
+        document.getElementById('fvPrincipal').textContent = 'RM ' + totalPrincipal.toFixed(2);
+        document.getElementById('fvInterest').textContent = 'RM ' + totalInterest.toFixed(2);
+
+        document.getElementById('calcResult').classList.add('show');
+    });
+
+    // ============================================================
+    // CONTACT FORM — Formspree AJAX submission
+    // ============================================================
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const form = this;
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('formSuccess').classList.add('show');
+                form.reset();
+                setTimeout(() => {
+                    document.getElementById('formSuccess').classList.remove('show');
+                }, 6000);
+            } else {
+                alert('⚠️ Something went wrong. Please try again or email me directly.');
+            }
+        })
+        .catch(error => {
+            alert('⚠️ Something went wrong. Please try again or email me directly.');
+            console.error('Formspree error:', error);
+        });
+    });
+</script>
+
+</body>
+</html>
